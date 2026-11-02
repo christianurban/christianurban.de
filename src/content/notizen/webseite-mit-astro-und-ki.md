@@ -33,7 +33,7 @@ Ein paar Dinge sind mir dabei aufgefallen:
 - **Entscheidungen bleiben bei mir.** Bei der Lizenz für die Inhalte kam eine Rückfrage statt einer stillen Annahme (es ist CC BY 4.0 geworden). Für die Startseite kam eine Liste mit Fragen zu Beruf, Region und Familie, bevor eine Zeile Text geschrieben wurde.
 - **Vorhandenes wiederverwenden.** Für das Design habe ich nur gesagt: „so wie in meinem Cookbook-Repo, oder noch professioneller“. Farben, Schriften und Karten wurden von dort übernommen – ruhiger und mit hellem Farbschema.
 - **Details, an die ich nicht gedacht hätte.** Etwa, dass die Seite ohne eigene Domain in einem Unterpfad liegt und sonst CSS und Links ins Leere zeigen. Oder dass Schriften besser lokal ausgeliefert werden als von Google Fonts. Zu beidem gibt es eine eigene Notiz.
-- **Fehler passieren trotzdem.** Einmal wurden zwei Korrekturen auf einen Branch gepusht, dessen PR ich schon gemergt hatte. Sie fehlten auf `main`, und ich habe es nur bemerkt, weil ich keinen PR mehr gesehen habe. Auch daraus ist eine Notiz geworden.
+- **Fehler passieren trotzdem.** Einmal wurden zwei Korrekturen auf einen Branch gepusht, dessen PR ich schon gemergt hatte. Sie fehlten auf `main`, und ich habe es nur bemerkt, weil ich keinen PR mehr gesehen habe.
 
 ## Wie die Seite jetzt funktioniert
 
