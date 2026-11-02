@@ -1,0 +1,40 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { formatDate } from '../lib/site';
+
+const page = await getEntry('seiten', 'now');
+if (!page) throw new Error('src/content/seiten/now.md fehlt');
+const { title, description, updated } = page.data;
+const { Content } = await render(page);
+---
+
+<BaseLayout title={title} description={description}>
+  <article>
+    <header class="page-head">
+      <span class="kicker">
+        Now · aktualisiert am <time datetime={updated.toISOString()}>{formatDate(updated)}</time>
+      </span>
+      <h1>{title}</h1>
+      <p class="lede">{description}</p>
+    </header>
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .page-head {
+    max-width: var(--prose);
+    margin-bottom: 40px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  h1 {
+    margin: 12px 0 16px;
+    font-size: clamp(2rem, 6vw, 3.25rem);
+    font-weight: 700;
+  }
+</style>
