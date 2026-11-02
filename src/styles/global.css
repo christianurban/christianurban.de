@@ -1,0 +1,493 @@
+/* Designsprache angelehnt an das Cookbook: dunkles Theme, Verlauf Cyan → Violett → Pink, Glas-Karten.
+   Ruhiger gehalten und mit hellem Farbschema für längere Texte. */
+
+:root {
+  --bg: #07080f;
+  --bg-elevated: #0d0f1c;
+  --surface: rgba(255, 255, 255, 0.045);
+  --surface-strong: rgba(255, 255, 255, 0.08);
+  --card: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --text: #eef0ff;
+  --text-soft: #c9cde6;
+  --muted: #9097b8;
+  --cyan: #22d3ee;
+  --violet: #7c5cff;
+  --pink: #f472b6;
+  --link: #67e8f9;
+  --gradient: linear-gradient(120deg, var(--cyan), var(--violet) 55%, var(--pink));
+  --glow: 0 0 0 1px rgba(124, 92, 255, 0.35), 0 10px 40px -10px rgba(124, 92, 255, 0.55);
+  --header-bg: rgba(7, 8, 15, 0.65);
+  --aurora-strength: 1;
+  --radius: 18px;
+  --font-display: 'Space Grotesk Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --gutter: 16px;
+  --content: 1120px;
+  --prose: 70ch;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f7f7fb;
+    --bg-elevated: #ffffff;
+    --surface: rgba(15, 18, 40, 0.035);
+    --surface-strong: rgba(15, 18, 40, 0.07);
+    --card: linear-gradient(180deg, #ffffff, rgba(255, 255, 255, 0.75));
+    --border: rgba(15, 18, 40, 0.09);
+    --border-strong: rgba(15, 18, 40, 0.18);
+    --text: #10132a;
+    --text-soft: #343a5c;
+    --muted: #5d6385;
+    --cyan: #0891b2;
+    --violet: #6d4aff;
+    --pink: #db2777;
+    --link: #0e7490;
+    --glow: 0 0 0 1px rgba(109, 74, 255, 0.3), 0 10px 30px -12px rgba(109, 74, 255, 0.35);
+    --header-bg: rgba(247, 247, 251, 0.75);
+    --aurora-strength: 0.55;
+    color-scheme: light;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 84px;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Aurora-Licht und feines Raster im Hintergrund – dezenter als im Cookbook */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+body::before {
+  opacity: var(--aurora-strength);
+  background:
+    radial-gradient(40rem 26rem at 6% -8%, rgba(34, 211, 238, 0.13), transparent 70%),
+    radial-gradient(36rem 28rem at 96% 0%, rgba(124, 92, 255, 0.16), transparent 70%);
+}
+
+body::after {
+  background-image:
+    linear-gradient(var(--surface) 1px, transparent 1px),
+    linear-gradient(90deg, var(--surface) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 65%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 65%);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  margin: 0;
+  text-wrap: balance;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: rgba(124, 92, 255, 0.4);
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: -100px;
+  z-index: 20;
+  padding: 8px 14px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+.gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--content);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.page-content {
+  flex: 1;
+  padding-top: 40px;
+  padding-bottom: 72px;
+}
+
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+.lede {
+  margin: 0;
+  max-width: 62ch;
+  font-size: 1.125rem;
+  color: var(--muted);
+}
+
+/* Buttons */
+
+.button,
+.button-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  font: 500 0.9rem var(--font-body);
+  text-decoration: none;
+  border-radius: 999px;
+  transition: box-shadow 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.button {
+  color: #fff;
+  background: var(--gradient);
+  box-shadow: 0 8px 28px -10px rgba(124, 92, 255, 0.8);
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 34px -10px rgba(124, 92, 255, 0.95);
+}
+
+.button-ghost {
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+}
+
+.button-ghost:hover {
+  border-color: transparent;
+  background: var(--surface-strong);
+  box-shadow: var(--glow);
+}
+
+/* Abschnittsüberschriften */
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 64px 0 18px;
+}
+
+.section-head h2 {
+  font-size: 1.5rem;
+}
+
+.section-head a {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--link);
+  text-decoration: none;
+}
+
+.section-head a:hover {
+  text-decoration: underline;
+}
+
+/* Karten-Raster */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+/* Glas-Karte mit Verlaufsrand beim Hover */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px;
+  text-decoration: none;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  padding: 1px;
+  border-radius: inherit;
+  background: var(--gradient);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+a.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 50px -20px rgba(124, 92, 255, 0.55);
+}
+
+a.card:hover::before {
+  opacity: 1;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.93rem;
+  color: var(--muted);
+}
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 40px 16px;
+  text-align: center;
+  color: var(--muted);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+}
+
+/* Tags */
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag-list li {
+  padding: 3px 10px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-soft);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+/* Fließtext in Beiträgen */
+
+.prose {
+  max-width: var(--prose);
+  color: var(--text-soft);
+}
+
+.prose > * + * {
+  margin-top: 1.1em;
+}
+
+.prose :is(h2, h3) {
+  color: var(--text);
+  margin-top: 2em;
+}
+
+.prose h2 {
+  font-size: 1.6rem;
+}
+
+.prose h3 {
+  font-size: 1.25rem;
+}
+
+.prose p,
+.prose ul,
+.prose ol {
+  margin-bottom: 0;
+}
+
+.prose li + li {
+  margin-top: 0.35em;
+}
+
+.prose a {
+  color: var(--link);
+  text-decoration-color: color-mix(in srgb, var(--link) 40%, transparent);
+  text-underline-offset: 3px;
+}
+
+.prose a:hover {
+  text-decoration-color: currentColor;
+}
+
+.prose strong {
+  color: var(--text);
+}
+
+.prose blockquote {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 4px 0 4px 18px;
+  border-left: 3px solid var(--violet);
+  color: var(--muted);
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+.prose :not(pre) > code {
+  padding: 0.15em 0.4em;
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: var(--text);
+  background: var(--surface-strong);
+  border-radius: 6px;
+}
+
+.prose pre {
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.93rem;
+}
+
+.prose :is(th, td) {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Code-Highlighting: Shiki liefert beide Themes als Variablen */
+.astro-code,
+.astro-code span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
+}
+
+@media (prefers-color-scheme: light) {
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-light);
+    background-color: var(--shiki-light-bg);
+  }
+}
+
+@media (min-width: 720px) {
+  :root {
+    --gutter: 32px;
+  }
+
+  .page-content {
+    padding-top: 64px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media print {
+  body::before,
+  body::after,
+  .site-header,
+  .site-footer {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+}

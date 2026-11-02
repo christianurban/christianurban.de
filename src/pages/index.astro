@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import { SECTIONS, SECTION_KEYS, SITE, getAllPosts } from '../lib/site';
+
+const latest = (await getAllPosts()).slice(0, 6);
+---
+
+<BaseLayout>
+  <section class="hero">
+    <span class="kicker">Softwareentwicklung · KI · GitHub</span>
+    <h1>Hi, ich bin Christian. Ich schreibe über <span class="gradient-text">Softwareentwicklung mit KI</span>.</h1>
+    <p class="lede">{SITE.description}</p>
+    <div class="actions">
+      <a class="button" href="/notizen/">Zu den Notizen</a>
+      <a class="button-ghost" href={SITE.github} rel="me">GitHub</a>
+    </div>
+  </section>
+
+  <div class="section-head">
+    <h2>Neueste Beiträge</h2>
+  </div>
+  <div class="card-grid">
+    {latest.map((post) => <PostCard post={post} showSection />)}
+    {latest.length === 0 && <p class="empty-state">Die ersten Beiträge sind in Arbeit.</p>}
+  </div>
+
+  <div class="section-head">
+    <h2>Rubriken</h2>
+  </div>
+  <div class="card-grid">
+    {
+      SECTION_KEYS.map((key) => (
+        <a class="card" href={`/${key}/`}>
+          <h3>{SECTIONS[key].label}</h3>
+          <p>{SECTIONS[key].description}</p>
+        </a>
+      ))
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .hero h1 {
+    max-width: 18ch;
+    margin: 14px 0 20px;
+    font-size: clamp(1.9rem, 8vw, 4rem);
+    font-weight: 700;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+  }
+</style>

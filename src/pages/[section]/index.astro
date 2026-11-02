@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { SECTIONS, SECTION_KEYS, getPosts, type SectionKey } from '../../lib/site';
+
+export function getStaticPaths() {
+  return SECTION_KEYS.map((section) => ({ params: { section } }));
+}
+
+const section = Astro.params.section as SectionKey;
+const { label, description } = SECTIONS[section];
+const posts = await getPosts(section);
+---
+
+<BaseLayout title={label} description={description}>
+  <header class="page-head">
+    <span class="kicker">Rubrik</span>
+    <h1>{label}</h1>
+    <p class="lede">{description}</p>
+  </header>
+  <div class="card-grid">
+    {posts.map((post) => <PostCard post={post} />)}
+    {posts.length === 0 && <p class="empty-state">Hier entsteht gerade etwas – bald gibt es die ersten Beiträge.</p>}
+  </div>
+</BaseLayout>
+
+<style>
+  .page-head {
+    margin-bottom: 36px;
+  }
+
+  h1 {
+    margin: 10px 0 14px;
+    font-size: clamp(2.25rem, 6vw, 3.5rem);
+    font-weight: 700;
+  }
+</style>

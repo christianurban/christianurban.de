@@ -1,0 +1,121 @@
+---
+import { SECTIONS, SECTION_KEYS, SITE } from '../lib/site';
+
+const path = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="header-inner container">
+    <a href="/" class="brand" aria-label={`${SITE.title} – Startseite`}>
+      <span class="brand-mark" aria-hidden="true">CU</span>
+      <span>{SITE.title}</span>
+    </a>
+    <nav aria-label="Hauptnavigation">
+      <ul>
+        {
+          SECTION_KEYS.map((key) => (
+            <li>
+              <a
+                href={`/${key}/`}
+                aria-current={path.startsWith(`/${key}/`) ? 'page' : undefined}
+              >
+                {SECTIONS[key].label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--header-bg);
+    backdrop-filter: saturate(1.6) blur(16px);
+    -webkit-backdrop-filter: saturate(1.6) blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+  }
+
+  .brand-mark {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+    color: #fff;
+    background: var(--gradient);
+    border-radius: 9px;
+    box-shadow: 0 0 16px -2px rgba(124, 92, 255, 0.6);
+  }
+
+  nav {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  ul {
+    display: flex;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  nav a {
+    display: block;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    border-radius: 999px;
+    transition: color 0.15s, background 0.15s;
+  }
+
+  nav a:hover {
+    color: var(--text);
+    background: var(--surface);
+  }
+
+  nav a[aria-current='page'] {
+    color: var(--text);
+    background: var(--surface-strong);
+    box-shadow: inset 0 0 0 1px var(--border-strong);
+  }
+
+  /* Auf schmalen Bildschirmen rutscht die Navigation in eine eigene Zeile */
+  @media (max-width: 599px) {
+    nav {
+      width: 100%;
+    }
+
+    ul {
+      margin-left: -12px;
+    }
+  }
+</style>

@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Seite nicht gefunden">
+  <span class="kicker">Fehler 404</span>
+  <h1>Diese Seite gibt es <span class="gradient-text">nicht</span>.</h1>
+  <p class="lede">Vielleicht wurde sie verschoben – auf der Startseite geht es weiter.</p>
+  <p><a class="button" href="/">Zur Startseite</a></p>
+</BaseLayout>
+
+<style>
+  h1 {
+    margin: 12px 0 16px;
+    font-size: clamp(2.25rem, 6vw, 3.5rem);
+  }
+
+  p:last-child {
+    margin-top: 28px;
+  }
+</style>

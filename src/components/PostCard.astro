@@ -1,0 +1,28 @@
+---
+import { SECTIONS, formatDate, postUrl, type Post } from '../lib/site';
+
+interface Props {
+  post: Post;
+  showSection?: boolean;
+}
+
+const { post, showSection = false } = Astro.props;
+const { title, description, date, tags, draft } = post.data;
+---
+
+<a class="card" href={postUrl(post)}>
+  {showSection && <span class="kicker">{SECTIONS[post.collection].label}</span>}
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <div class="card-meta">
+    <time datetime={date.toISOString()}>{formatDate(date)}</time>
+    {tags.slice(0, 3).map((tag) => <span>#{tag}</span>)}
+    {draft && <span class="draft">Entwurf</span>}
+  </div>
+</a>
+
+<style>
+  .draft {
+    color: var(--pink);
+  }
+</style>
