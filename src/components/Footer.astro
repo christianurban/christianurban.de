@@ -1,5 +1,5 @@
 ---
-import { IMMOBILIEN_URL, SITE } from '../lib/site';
+import { IMMOBILIEN_URL, SITE, url } from '../lib/site';
 
 const year = new Date().getFullYear();
 ---
@@ -12,6 +12,8 @@ const year = new Date().getFullYear();
       <li><a href={SITE.linkedin} rel="me">LinkedIn</a></li>
       <li><a href="https://github.com/christianurban/christianurban.de">Quellcode</a></li>
       <li><a href={IMMOBILIEN_URL}>Urban Stahl Immobilien</a></li>
+      <li><a href={url('/impressum/')}>Impressum</a></li>
+      <li><a href={url('/datenschutz/')}>Datenschutz</a></li>
     </ul>
   </div>
 </footer>

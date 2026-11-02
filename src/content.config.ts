@@ -24,6 +24,7 @@ export const collections = {
       title: z.string(),
       description: z.string(),
       updated: z.coerce.date(),
+      kicker: z.string().default('Seite'),
     }),
   }),
 };
