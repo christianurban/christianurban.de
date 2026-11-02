@@ -17,21 +17,4 @@ const markdown = (dir: string) => glob({ pattern: '**/*.md', base: `./src/conten
 export const collections = {
   notizen: defineCollection({ loader: markdown('notizen'), schema: base }),
   meinung: defineCollection({ loader: markdown('meinung'), schema: base }),
-  rezepte: defineCollection({
-    loader: markdown('rezepte'),
-    schema: base.extend({
-      category: z.string().optional(),
-      servings: z.number().int().positive().optional(),
-      time: z.string().optional(),
-    }),
-  }),
-  talks: defineCollection({
-    loader: markdown('talks'),
-    schema: base.extend({
-      event: z.string(),
-      location: z.string().optional(),
-      slides: z.url().optional(),
-      video: z.url().optional(),
-    }),
-  }),
 };
