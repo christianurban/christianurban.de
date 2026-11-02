@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { countTags, getAllPosts, tagUrl } from '../../lib/site';
+
+const tags = countTags(await getAllPosts());
+---
+
+<BaseLayout title="Themen" description="Alle Beiträge nach Themen sortiert.">
+  <header class="page-head">
+    <span class="kicker">Übersicht</span>
+    <h1>Themen</h1>
+    <p class="lede">Alle Beiträge nach Themen sortiert.</p>
+  </header>
+  {
+    tags.length > 0 ? (
+      <ul class="tag-list">
+        {tags.map(([tag, count]) => (
+          <li>
+            <a href={tagUrl(tag)}>#{tag} <span class="count">{count}</span></a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="empty-state">Noch keine Themen.</p>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .page-head {
+    margin-bottom: 36px;
+  }
+
+  h1 {
+    margin: 10px 0 14px;
+    font-size: clamp(2.25rem, 6vw, 3.5rem);
+    font-weight: 700;
+  }
+
+  .tag-list li {
+    font-size: 0.85rem;
+  }
+</style>

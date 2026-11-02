@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostCard from '../../components/PostCard.astro';
-import { SECTIONS, SECTION_KEYS, getPosts, type SectionKey } from '../../lib/site';
+import { SECTIONS, SECTION_KEYS, countTags, getPosts, tagUrl, type SectionKey } from '../../lib/site';
 
 export function getStaticPaths() {
   return SECTION_KEYS.map((section) => ({ params: { section } }));
@@ -10,6 +10,7 @@ export function getStaticPaths() {
 const section = Astro.params.section as SectionKey;
 const { label, description } = SECTIONS[section];
 const posts = await getPosts(section);
+const tags = countTags(posts);
 ---
 
 <BaseLayout title={label} description={description}>
@@ -17,6 +18,17 @@ const posts = await getPosts(section);
     <span class="kicker">Rubrik</span>
     <h1>{label}</h1>
     <p class="lede">{description}</p>
+    {
+      tags.length > 0 && (
+        <ul class="tag-list" aria-label="Themen">
+          {tags.map(([tag, count]) => (
+            <li>
+              <a href={tagUrl(tag)}>#{tag} <span class="count">{count}</span></a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
   </header>
   <div class="card-grid">
     {posts.map((post) => <PostCard post={post} />)}
@@ -27,6 +39,10 @@ const posts = await getPosts(section);
 <style>
   .page-head {
     margin-bottom: 36px;
+  }
+
+  .tag-list {
+    margin-top: 22px;
   }
 
   h1 {

@@ -1,7 +1,7 @@
 ---
 import { render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { SECTIONS, SECTION_KEYS, formatDate, getPosts, url } from '../../lib/site';
+import { SECTIONS, SECTION_KEYS, formatDate, getPosts, tagUrl, url } from '../../lib/site';
 
 export async function getStaticPaths() {
   const posts = (await Promise.all(SECTION_KEYS.map(getPosts))).flat();
@@ -25,7 +25,7 @@ const { Content } = await render(post);
       </span>
       <h1>{title}</h1>
       <p class="lede">{description}</p>
-      {tags.length > 0 && <ul class="tag-list">{tags.map((tag) => <li>#{tag}</li>)}</ul>}
+      {tags.length > 0 && <ul class="tag-list">{tags.map((tag) => <li><a href={tagUrl(tag)}>#{tag}</a></li>)}</ul>}
     </header>
     <div class="prose">
       <Content />
@@ -34,21 +34,6 @@ const { Content } = await render(post);
 </BaseLayout>
 
 <style>
-  .back-link {
-    display: inline-block;
-    margin-bottom: 28px;
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-decoration: none;
-  }
-
-  .back-link:hover {
-    color: var(--cyan);
-  }
-
   .article-head {
     max-width: var(--prose);
     margin-bottom: 40px;
