@@ -2,6 +2,7 @@
 title: Was ich gerade mache
 description: Woran ich arbeite, was mich beschäftigt und wie ich mich bewege – eine Momentaufnahme.
 updated: 2026-11-02
+kicker: Now
 ---
 
 ## Arbeit

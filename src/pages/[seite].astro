@@ -1,11 +1,16 @@
 ---
-import { getEntry, render } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { formatDate } from '../lib/site';
 
-const page = await getEntry('seiten', 'now');
-if (!page) throw new Error('src/content/seiten/now.md fehlt');
-const { title, description, updated } = page.data;
+// Einzelseiten aus src/content/seiten/, z. B. now.md → /now/
+export async function getStaticPaths() {
+  const pages = await getCollection('seiten');
+  return pages.map((page) => ({ params: { seite: page.id }, props: { page } }));
+}
+
+const { page } = Astro.props;
+const { title, description, updated, kicker } = page.data;
 const { Content } = await render(page);
 ---
 
@@ -13,7 +18,7 @@ const { Content } = await render(page);
   <article>
     <header class="page-head">
       <span class="kicker">
-        Now · aktualisiert am <time datetime={updated.toISOString()}>{formatDate(updated)}</time>
+        {kicker} · Stand <time datetime={updated.toISOString()}>{formatDate(updated)}</time>
       </span>
       <h1>{title}</h1>
       <p class="lede">{description}</p>

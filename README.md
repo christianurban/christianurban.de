@@ -21,7 +21,7 @@ src/
 ├── content/          Inhalte als Markdown, ein Ordner pro Rubrik
 │   ├── notizen/
 │   ├── meinung/
-│   └── seiten/       Einzelseiten wie /now
+│   └── seiten/       Einzelseiten: /now, Impressum, Datenschutz
 ├── content.config.ts Schemas der Rubriken (Pflichtfelder im Frontmatter)
 ├── components/       Header, Footer, Beitragskarte
 ├── layouts/          Basis-Layout mit Meta-Tags
