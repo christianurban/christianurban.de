@@ -5,7 +5,30 @@ export const SITE = {
   description:
     'Notizen zu Softwareentwicklung, KI und GitHub – dazu Rezepte, Laufen, Wandern und Tennis.',
   github: 'https://github.com/christianurban',
+  linkedin: 'https://www.linkedin.com/in/christian-urban-b25367127/',
+  jobTitle: 'Lead Technical Advisor for Development and Operations',
+  employer: { name: 'GWS mbH', location: 'Münster', url: 'https://gws.ms/' },
+  location: 'Drevenack, Kreis Wesel',
 };
+
+export const PROJECTS = [
+  {
+    title: 'TC Drevenack',
+    kicker: 'Verein',
+    description: 'Die Webseite meines Tennisvereins – von mir gebaut und betreut.',
+    href: 'https://www.tc-drevenack.de/',
+    label: 'tc-drevenack.de',
+  },
+  {
+    title: 'christianurban.de',
+    kicker: 'Open Source',
+    description: 'Diese Seite: Astro, Markdown und GitHub Actions, gehostet auf GitHub Pages.',
+    href: 'https://github.com/christianurban/christianurban.de',
+    label: 'Quellcode auf GitHub',
+  },
+];
+
+export const IMMOBILIEN_URL = 'https://urban-stahl-immobilienverwaltung.de/';
 
 export type SectionKey = 'notizen' | 'meinung' | 'rezepte' | 'talks';
 
