@@ -71,6 +71,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 export const url = (path: string) => `${base}${path}`;
 
 export const postUrl = (post: Post) => url(`/${post.collection}/${post.id}/`);
+export const tagUrl = (tag: string) => url(`/tags/${tag}/`);
+
+// Tags mit Anzahl der Beiträge, häufigste zuerst
+export function countTags(posts: Post[]): [string, number][] {
+  const counts = new Map<string, number>();
+  for (const tag of posts.flatMap((post) => post.data.tags)) counts.set(tag, (counts.get(tag) ?? 0) + 1);
+  return [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'de'));
+}
 
 const dateFormat = new Intl.DateTimeFormat('de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
 export const formatDate = (date: Date) => dateFormat.format(date);

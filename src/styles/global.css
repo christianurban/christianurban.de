@@ -183,6 +183,23 @@ a {
   color: var(--muted);
 }
 
+/* Zurück-Link auf Unterseiten */
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 28px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: var(--cyan);
+}
+
 /* Buttons */
 
 .button,
@@ -344,6 +361,26 @@ a.card:hover::before {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 999px;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.tag-list li:has(a) {
+  padding: 0;
+}
+
+.tag-list a {
+  display: block;
+  padding: 3px 10px;
+  text-decoration: none;
+}
+
+.tag-list li:has(a:hover) {
+  color: var(--text);
+  border-color: var(--violet);
+}
+
+.tag-list .count {
+  color: var(--muted);
 }
 
 /* Fließtext in Beiträgen */
