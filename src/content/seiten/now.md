@@ -12,14 +12,14 @@ updated: 2026-11-02
 
 ## Zu Hause
 
-- **Hausautomation:** Gerade automatisiere ich unser ganzes Haus mit Home Assistant, KNX und dem Gira Projekt Assistenten (GPA).
-- **Unser Kochbuch:** Alle unsere Rezepte stecken jetzt in einem digitalen Kochbuch – eingebunden in Home Assistant.
+- **Hausautomation:** Gerade automatisiere ich unser ganzes Haus mit Home Assistant, KNX und dem Gira Projekt Assistenten (GPA). Die Konfiguration liegt in einem privaten Repo auf GitHub.
+- **Unser Kochbuch:** Alle unsere Rezepte stecken jetzt in einem digitalen Kochbuch – eingebunden in Home Assistant. Auch das liegt in einem privaten Repo.
 - **Diese Webseite:** Issue für Issue aufgebaut, mit Claude Code als Kollegen. Den Weg dahin beschreibe ich in den [Notizen](../notizen/webseite-mit-astro-und-ki/).
 
 ## Bewegung
 
 - **Tennis:** Bei den Medenspielen ist Winterpause, also gerade nur normales Wintertraining.
-- **Berge:** Im März geht es an den König Dachstein – Wandern für mich, Skischule für unsere Ältere.
+- **Berge:** Im März geht es ins Familux Resort Dachsteinkönig – Wandern für mich, Skischule für unsere Ältere.
 
 ---
 
