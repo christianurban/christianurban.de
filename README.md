@@ -20,7 +20,8 @@ Jeder Push auf `main` baut die Seite und veröffentlicht sie über [GitHub Actio
 src/
 ├── content/          Inhalte als Markdown, ein Ordner pro Rubrik
 │   ├── notizen/
-│   └── meinung/
+│   ├── meinung/
+│   └── seiten/       Einzelseiten wie /now
 ├── content.config.ts Schemas der Rubriken (Pflichtfelder im Frontmatter)
 ├── components/       Header, Footer, Beitragskarte
 ├── layouts/          Basis-Layout mit Meta-Tags
@@ -46,6 +47,10 @@ Hier beginnt der Text.
 ```
 
 Beiträge lassen sich auch direkt auf github.com anlegen (*Add file → Create new file*), etwa vom Handy aus.
+
+## /now aktualisieren
+
+Die Seite [/now](https://christianurban.de/now/) steht in [`src/content/seiten/now.md`](src/content/seiten/now.md). Text ändern und `updated` im Frontmatter auf das aktuelle Datum setzen – das geht auch direkt auf github.com.
 
 ## Lizenz
 

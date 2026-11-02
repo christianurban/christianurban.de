@@ -17,4 +17,13 @@ const markdown = (dir: string) => glob({ pattern: '**/*.md', base: `./src/conten
 export const collections = {
   notizen: defineCollection({ loader: markdown('notizen'), schema: base }),
   meinung: defineCollection({ loader: markdown('meinung'), schema: base }),
+  // Einzelseiten wie /now, die keine Beiträge sind
+  seiten: defineCollection({
+    loader: markdown('seiten'),
+    schema: z.object({
+      title: z.string(),
+      description: z.string(),
+      updated: z.coerce.date(),
+    }),
+  }),
 };
