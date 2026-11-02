@@ -7,6 +7,7 @@ export const SITE = {
   github: 'https://github.com/christianurban',
   linkedin: 'https://www.linkedin.com/in/christian-urban-b25367127/',
   jobTitle: 'Lead Technical Advisor for Development and Operations',
+  employer: { name: 'GWS mbH', location: 'Münster', url: 'https://gws.ms/' },
   location: 'Drevenack, Kreis Wesel',
 };
 

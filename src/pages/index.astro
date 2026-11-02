@@ -14,10 +14,17 @@ const person = {
   url: Astro.site?.href,
   sameAs: [SITE.github, SITE.linkedin],
   homeLocation: { '@type': 'Place', name: SITE.location },
+  worksFor: {
+    '@type': 'Organization',
+    name: SITE.employer.name,
+    url: SITE.employer.url,
+    address: { '@type': 'PostalAddress', addressLocality: SITE.employer.location },
+  },
 };
 
 const facts = [
   { label: 'Beruf', value: SITE.jobTitle },
+  { label: 'Arbeitgeber', value: `${SITE.employer.name}, ${SITE.employer.location}` },
   { label: 'Schwerpunkte', value: 'KI-gestützte Entwicklung, GitHub, DevOps' },
   { label: 'Zuhause', value: SITE.location },
   { label: 'Abseits vom Code', value: 'Tennis, Joggen, Wandern, Kochen' },
@@ -32,7 +39,7 @@ const facts = [
     <span class="kicker">Development &amp; Operations · KI · GitHub</span>
     <h1>Hi, ich bin Christian. Ich schreibe über <span class="gradient-text">Softwareentwicklung mit KI</span>.</h1>
     <p class="lede">
-      Als Lead Technical Advisor for Development and Operations beschäftige ich mich damit, wie KI, GitHub und gute
+      Als Lead Technical Advisor for Development and Operations bei der GWS mbH in Münster beschäftige ich mich damit, wie KI, GitHub und gute
       Werkzeuge die Softwareentwicklung verändern. Hier teile ich, was ich dabei lerne – dazu Rezepte, Laufen, Wandern
       und Tennis.
     </p>
