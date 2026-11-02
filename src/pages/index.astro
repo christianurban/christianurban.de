@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostCard from '../components/PostCard.astro';
-import { SECTIONS, SECTION_KEYS, SITE, getAllPosts } from '../lib/site';
+import { SECTIONS, SECTION_KEYS, SITE, getAllPosts, url } from '../lib/site';
 
 const latest = (await getAllPosts()).slice(0, 6);
 ---
@@ -12,7 +12,7 @@ const latest = (await getAllPosts()).slice(0, 6);
     <h1>Hi, ich bin Christian. Ich schreibe über <span class="gradient-text">Softwareentwicklung mit KI</span>.</h1>
     <p class="lede">{SITE.description}</p>
     <div class="actions">
-      <a class="button" href="/notizen/">Zu den Notizen</a>
+      <a class="button" href={url('/notizen/')}>Zu den Notizen</a>
       <a class="button-ghost" href={SITE.github} rel="me">GitHub</a>
     </div>
   </section>
@@ -31,7 +31,7 @@ const latest = (await getAllPosts()).slice(0, 6);
   <div class="card-grid">
     {
       SECTION_KEYS.map((key) => (
-        <a class="card" href={`/${key}/`}>
+        <a class="card" href={url(`/${key}/`)}>
           <h3>{SECTIONS[key].label}</h3>
           <p>{SECTIONS[key].description}</p>
         </a>

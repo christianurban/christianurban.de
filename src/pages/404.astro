@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../lib/site';
 ---
 
 <BaseLayout title="Seite nicht gefunden">
   <span class="kicker">Fehler 404</span>
   <h1>Diese Seite gibt es <span class="gradient-text">nicht</span>.</h1>
   <p class="lede">Vielleicht wurde sie verschoben – auf der Startseite geht es weiter.</p>
-  <p><a class="button" href="/">Zur Startseite</a></p>
+  <p><a class="button" href={url('/')}>Zur Startseite</a></p>
 </BaseLayout>
 
 <style>

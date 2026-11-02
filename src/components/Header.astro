@@ -1,12 +1,12 @@
 ---
-import { SECTIONS, SECTION_KEYS, SITE } from '../lib/site';
+import { SECTIONS, SECTION_KEYS, SITE, url } from '../lib/site';
 
 const path = Astro.url.pathname;
 ---
 
 <header class="site-header">
   <div class="header-inner container">
-    <a href="/" class="brand" aria-label={`${SITE.title} – Startseite`}>
+    <a href={url('/')} class="brand" aria-label={`${SITE.title} – Startseite`}>
       <span class="brand-mark" aria-hidden="true">CU</span>
       <span>{SITE.title}</span>
     </a>
@@ -16,8 +16,8 @@ const path = Astro.url.pathname;
           SECTION_KEYS.map((key) => (
             <li>
               <a
-                href={`/${key}/`}
-                aria-current={path.startsWith(`/${key}/`) ? 'page' : undefined}
+                href={url(`/${key}/`)}
+                aria-current={path.startsWith(url(`/${key}/`)) ? 'page' : undefined}
               >
                 {SECTIONS[key].label}
               </a>
