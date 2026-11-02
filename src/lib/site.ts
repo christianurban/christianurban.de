@@ -43,7 +43,11 @@ export async function getAllPosts(): Promise<Post[]> {
   return all.flat().sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 }
 
-export const postUrl = (post: Post) => `/${post.collection}/${post.id}/`;
+// Interne Links mit Basispfad, solange die Seite unter christianurban.github.io/christianurban.de/ liegt
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+export const url = (path: string) => `${base}${path}`;
+
+export const postUrl = (post: Post) => url(`/${post.collection}/${post.id}/`);
 
 const dateFormat = new Intl.DateTimeFormat('de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
 export const formatDate = (date: Date) => dateFormat.format(date);
