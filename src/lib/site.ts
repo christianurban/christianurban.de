@@ -3,7 +3,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 export const SITE = {
   title: 'Christian Urban',
   description:
-    'Notizen zu Softwareentwicklung, KI und GitHub – dazu Rezepte, Laufen, Wandern und Tennis.',
+    'Notizen und Gedanken zu Softwareentwicklung mit KI, GitHub und DevOps.',
   github: 'https://github.com/christianurban',
   linkedin: 'https://www.linkedin.com/in/christian-urban-b25367127/',
   jobTitle: 'Lead Technical Advisor for Development and Operations',
@@ -30,7 +30,7 @@ export const PROJECTS = [
 
 export const IMMOBILIEN_URL = 'https://urban-stahl-immobilienverwaltung.de/';
 
-export type SectionKey = 'notizen' | 'meinung' | 'rezepte' | 'talks';
+export type SectionKey = 'notizen' | 'meinung';
 
 export const SECTIONS: Record<SectionKey, { label: string; description: string }> = {
   notizen: {
@@ -40,14 +40,6 @@ export const SECTIONS: Record<SectionKey, { label: string; description: string }
   meinung: {
     label: 'Meinung',
     description: 'Längere Gedanken dazu, wie sich Softwareentwicklung durch KI verändert.',
-  },
-  rezepte: {
-    label: 'Rezepte',
-    description: 'Was bei uns zu Hause auf den Tisch kommt – erprobt und alltagstauglich.',
-  },
-  talks: {
-    label: 'Talks',
-    description: 'Öffentliche Vorträge mit Slides und Notizen.',
   },
 };
 

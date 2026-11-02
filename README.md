@@ -20,9 +20,7 @@ Jeder Push auf `main` baut die Seite und veröffentlicht sie über [GitHub Actio
 src/
 ├── content/          Inhalte als Markdown, ein Ordner pro Rubrik
 │   ├── notizen/
-│   ├── meinung/
-│   ├── rezepte/
-│   └── talks/
+│   └── meinung/
 ├── content.config.ts Schemas der Rubriken (Pflichtfelder im Frontmatter)
 ├── components/       Header, Footer, Beitragskarte
 ├── layouts/          Basis-Layout mit Meta-Tags
@@ -47,11 +45,9 @@ draft: true   # optional: nur im Dev-Server sichtbar
 Hier beginnt der Text.
 ```
 
-Rezepte kennen zusätzlich `category`, `servings` und `time`, Talks `event` (Pflicht), `location`, `slides` und `video` – siehe [`src/content.config.ts`](src/content.config.ts).
-
 Beiträge lassen sich auch direkt auf github.com anlegen (*Add file → Create new file*), etwa vom Handy aus.
 
 ## Lizenz
 
 - **Code** (Astro-Setup, Layouts, Workflows): [MIT](LICENSE)
-- **Inhalte** unter `src/content` (Texte, Rezepte, Bilder): [CC BY 4.0](src/content/LICENSE.md) – ausgenommen Fotos, auf denen andere Personen zu erkennen sind
+- **Inhalte** unter `src/content` (Texte, Bilder): [CC BY 4.0](src/content/LICENSE.md) – ausgenommen Fotos, auf denen andere Personen zu erkennen sind
