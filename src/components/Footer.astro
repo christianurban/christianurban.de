@@ -6,7 +6,7 @@ const year = new Date().getFullYear();
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p>© {year} {SITE.title}</p>
+    <p>© {year} {SITE.title} · Inhalte unter <a href="https://creativecommons.org/licenses/by/4.0/deed.de" rel="license">CC BY 4.0</a></p>
     <ul>
       <li><a href={SITE.github} rel="me">GitHub</a></li>
       <li><a href="https://github.com/christianurban/christianurban.de">Quellcode</a></li>
@@ -48,6 +48,10 @@ const year = new Date().getFullYear();
 
   a {
     text-decoration: none;
+  }
+
+  p a {
+    color: var(--text-soft);
   }
 
   a:hover {
