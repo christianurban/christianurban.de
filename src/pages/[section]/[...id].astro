@@ -1,0 +1,72 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SECTIONS, SECTION_KEYS, formatDate, getPosts } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const posts = (await Promise.all(SECTION_KEYS.map(getPosts))).flat();
+  return posts.map((post) => ({ params: { section: post.collection, id: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { title, description, date, updated, tags, draft } = post.data;
+const section = SECTIONS[post.collection];
+const { Content } = await render(post);
+---
+
+<BaseLayout title={title} description={description} type="article">
+  <article>
+    <a class="back-link" href={`/${post.collection}/`}>← {section.label}</a>
+    <header class="article-head">
+      <span class="kicker">
+        <time datetime={date.toISOString()}>{formatDate(date)}</time>
+        {updated && <> · aktualisiert <time datetime={updated.toISOString()}>{formatDate(updated)}</time></>}
+        {draft && <span class="draft"> · Entwurf</span>}
+      </span>
+      <h1>{title}</h1>
+      <p class="lede">{description}</p>
+      {tags.length > 0 && <ul class="tag-list">{tags.map((tag) => <li>#{tag}</li>)}</ul>}
+    </header>
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .back-link {
+    display: inline-block;
+    margin-bottom: 28px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  .back-link:hover {
+    color: var(--cyan);
+  }
+
+  .article-head {
+    max-width: var(--prose);
+    margin-bottom: 40px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  h1 {
+    margin: 12px 0 16px;
+    font-size: clamp(2rem, 6vw, 3.25rem);
+    font-weight: 700;
+  }
+
+  .tag-list {
+    margin-top: 20px;
+  }
+
+  .draft {
+    color: var(--pink);
+  }
+</style>
