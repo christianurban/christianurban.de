@@ -39,7 +39,7 @@ export const SECTIONS: Record<SectionKey, { label: string; description: string }
   },
   meinung: {
     label: 'Meinung',
-    description: 'Längere Gedanken dazu, wie sich Softwareentwicklung durch KI verändert.',
+    description: 'Längere Gedanken zu Software, Technik und KI – meine persönliche Sicht.',
   },
 };
 
