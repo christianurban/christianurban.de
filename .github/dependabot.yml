@@ -1,0 +1,32 @@
+# Hält npm-Pakete und GitHub Actions aktuell. Sicherheitsupdates kommen
+# zusätzlich sofort, unabhängig von diesem Zeitplan.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      timezone: Europe/Berlin
+    groups:
+      # Astro und die Integrationen gemeinsam aktualisieren
+      astro:
+        patterns: ['astro', '@astrojs/*']
+      fonts:
+        patterns: ['@fontsource*']
+      dev:
+        dependency-type: development
+    commit-message:
+      prefix: npm
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      timezone: Europe/Berlin
+    groups:
+      actions:
+        patterns: ['*']
+    commit-message:
+      prefix: actions
