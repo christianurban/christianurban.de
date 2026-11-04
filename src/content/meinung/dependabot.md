@@ -19,25 +19,7 @@ Am Ende steht immer ein normaler Pull Request. Die Pipeline baut und testet ihn,
 
 ## Klein anfangen: diese Seite
 
-Auch diese Webseite nutzt Dependabot. Die Konfiguration ist überschaubar:
-
-```yaml
-version: 2
-updates:
-  - package-ecosystem: npm
-    directory: /
-    schedule:
-      interval: weekly
-    groups:
-      astro:
-        patterns: ['astro', '@astrojs/*']
-  - package-ecosystem: github-actions
-    directory: /
-    schedule:
-      interval: weekly
-```
-
-Einmal pro Woche kommen die Updates, zusammengehörige Pakete gebündelt in einem PR. Sicherheitsupdates kommen sofort.
+Auch diese Webseite nutzt Dependabot: Einmal pro Woche kommen Updates für npm-Pakete und GitHub Actions, zusammengehörige Pakete gebündelt in einem PR. Sicherheitsupdates kommen sofort. Wie das eingerichtet ist – vom einzelnen Repo bis zur ganzen Enterprise –, beschreibe ich in der Notiz [Dependabot-Sicherheitsupdates einrichten](../../notizen/dependabot-security-updates/).
 
 ## Groß denken: für alle Organisationen
 
