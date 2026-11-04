@@ -31,6 +31,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="author" content={SITE.title} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
+    <link rel="sitemap" href={url('/sitemap-index.xml')} />
     <meta property="og:type" content={type} />
     <meta property="og:locale" content="de_DE" />
     <meta property="og:site_name" content={SITE.title} />
