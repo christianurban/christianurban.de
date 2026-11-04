@@ -2,7 +2,7 @@
 title: Claude Code vom Handy steuern mit Remote Control
 description: Eine Claude-Code-Sitzung am Rechner starten, Remote Control einschalten und unterwegs per Sprache oder Text weiterarbeiten – so nutze ich das inzwischen fast täglich.
 date: 2026-11-04
-tags: [claude-code, ki, workflow]
+tags: [claude-code, github, ki, workflow]
 ---
 
 Eine Funktion von Claude Code nutze ich inzwischen fast täglich: [Remote Control](https://code.claude.com/docs/en/remote-control). Damit läuft eine Sitzung auf meinem Rechner weiter, gesteuert wird sie aber vom Handy aus.
@@ -19,9 +19,10 @@ Ab da erledige ich das meiste über das Handy: Ich spreche meine Anweisungen ein
 
 - **Unterwegs im Blick:** Ich sehe jederzeit, woran Claude gerade arbeitet, und kann auf Rückfragen reagieren, statt dass eine Aufgabe stundenlang wartet.
 - **Sprache statt Tastatur:** Ein Issue umsetzen, einen Text anpassen, einen PR erstellen – das lässt sich gut diktieren. Für längere Beschreibungen ist Sprechen sogar schneller als Tippen.
+- **Zusammen mit GitHub Mobile:** Richtig rund wird es mit der [GitHub-App](https://github.com/mobile). Den PR, den Claude Code erstellt hat, schaue ich mir direkt dort an, gleiche die Änderungen mit dem Issue ab und merge – alles auf dem Handy, ohne zwischen Geräten zu wechseln.
 - **Keine Kopie in der Cloud:** Code und Werkzeuge bleiben auf meinem Rechner. Das Handy ist nur die Fernbedienung.
 
-Auch an dieser Webseite habe ich so gearbeitet: Issue ansagen, PR auf github.com ansehen und mergen, das Ergebnis direkt auf dem Handy prüfen und Feedback samt Screenshot zurückschicken.
+Auch an dieser Webseite habe ich so gearbeitet: Issue ansagen, PR in der GitHub-App ansehen und mergen, das Ergebnis direkt auf dem Handy prüfen und Feedback samt Screenshot zurückschicken.
 
 ## Worauf man achten sollte
 
