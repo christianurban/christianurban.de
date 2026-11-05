@@ -31,8 +31,6 @@ Eine bewusste Ausnahme ist die Beschattung: Rund 25 Behänge mit Sonnenstandsnac
 
 Home Assistant bringt eine offizielle [KNX-Integration](https://www.home-assistant.io/integrations/knx/) mit. Der X1 stellt mehrere KNX-Tunnel bereit; einer davon ist jetzt für Home Assistant reserviert und hat in der ETS eine eigene physikalische Adresse. Routing per Multicast beherrscht der X1 nicht, Tunneling reicht aber völlig.
 
-Einen Haken hat das: ETS, Home Assistant und andere Clients teilen sich die Tunnel des X1. Mittelfristig plane ich deshalb eine eigene KNX-IP-Schnittstelle nur für Home Assistant.
-
 Wichtig zu wissen: Der X1 beantwortet keine Leseanfragen. Home Assistant liest Zustände deshalb direkt von den Aktoren oder hört auf die Rückmeldungen, die der X1 sendet.
 
 ## Eine eigene Hauptgruppe für Fremdsysteme
