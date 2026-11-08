@@ -56,3 +56,4 @@ Die Seite [/now](https://christianurban.de/now/) steht in [`src/content/seiten/n
 
 - **Code** (Astro-Setup, Layouts, Workflows): [MIT](LICENSE)
 - **Inhalte** unter `src/content` (Texte, Bilder): [CC BY 4.0](src/content/LICENSE.md) – ausgenommen Fotos, auf denen andere Personen zu erkennen sind
+- **Porträtfoto** `src/assets/christian-urban.jpg`: alle Rechte vorbehalten, weder MIT noch CC BY

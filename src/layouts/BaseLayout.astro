@@ -5,7 +5,9 @@ import '@fontsource/jetbrains-mono/500.css';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { getImage } from 'astro:assets';
 import { SITE, url } from '../lib/site';
+import portrait from '../assets/christian-urban.jpg';
 
 interface Props {
   title?: string;
@@ -16,6 +18,8 @@ interface Props {
 const { title, description = SITE.description, type = 'website' } = Astro.props;
 const pageTitle = title ? `${title} · ${SITE.title}` : `${SITE.title} – Softwareentwicklung, KI & GitHub`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+// Standard-Vorschaubild für Links in Messengern und sozialen Netzwerken
+const ogImage = await getImage({ src: portrait, width: 300, format: 'jpg' });
 ---
 
 <!doctype html>
@@ -38,6 +42,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:title" content={title ?? SITE.title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(ogImage.src, Astro.site)} />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:image:alt" content={`Porträt von ${SITE.title}`} />
+    <meta name="twitter:card" content="summary" />
     <slot name="head" />
   </head>
   <body>
