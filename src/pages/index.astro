@@ -1,9 +1,12 @@
 ---
+import { Image, getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import portrait from '../assets/christian-urban.jpg';
 import PostCard from '../components/PostCard.astro';
 import { PROJECTS, SECTIONS, SECTION_KEYS, SITE, getAllPosts, url } from '../lib/site';
 
 const latest = (await getAllPosts()).slice(0, 6);
+const personImage = await getImage({ src: portrait, width: 300, format: 'jpg' });
 
 // Strukturierte Daten für Suchmaschinen
 const person = {
@@ -12,6 +15,7 @@ const person = {
   name: SITE.title,
   jobTitle: SITE.jobTitle,
   url: Astro.site?.href,
+  image: new URL(personImage.src, Astro.site).href,
   sameAs: [SITE.github, SITE.linkedin],
   homeLocation: { '@type': 'Place', name: SITE.location },
   worksFor: {
@@ -36,6 +40,16 @@ const facts = [
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(person)} />
 
   <section class="hero">
+    <Image
+      class="portrait"
+      src={portrait}
+      alt="Porträt von Christian Urban: lächelnd, mit kurzem Bart, dunklem Sakko und weißem Hemd"
+      width={180}
+      height={180}
+      densities={[1, 1.5]}
+      loading="eager"
+      fetchpriority="high"
+    />
     <span class="kicker">Development &amp; Operations · KI · GitHub</span>
     <h1>Hi, ich bin Christian. Ich schreibe über <span class="gradient-text">Softwareentwicklung mit KI</span>.</h1>
     <p class="lede">
@@ -125,6 +139,20 @@ const facts = [
 </BaseLayout>
 
 <style>
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .portrait {
+    width: 112px;
+    height: 112px;
+    margin-bottom: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    object-fit: cover;
+  }
+
   .hero h1 {
     max-width: 18ch;
     margin: 14px 0 20px;
@@ -187,6 +215,24 @@ const facts = [
   }
 
   @media (min-width: 900px) {
+    .hero {
+      grid-template-columns: minmax(0, 1fr) auto;
+      column-gap: 56px;
+    }
+
+    .hero > :not(.portrait) {
+      grid-column: 1;
+    }
+
+    .portrait {
+      grid-column: 2;
+      grid-row: 1 / span 4;
+      align-self: center;
+      width: 180px;
+      height: 180px;
+      margin: 0;
+    }
+
     .about {
       grid-template-columns: 1.4fr 1fr;
       align-items: start;
