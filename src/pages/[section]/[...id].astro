@@ -15,16 +15,16 @@ const { Content } = await render(post);
 ---
 
 <BaseLayout title={title} description={description} type="article">
-  <article>
-    <a class="back-link" href={url(`/${post.collection}/`)}>← {section.label}</a>
+  <article data-pagefind-body data-pagefind-meta={`rubrik:${section.label}`}>
+    <a class="back-link" href={url(`/${post.collection}/`)} data-pagefind-ignore>← {section.label}</a>
     <header class="article-head">
-      <span class="kicker">
-        <time datetime={date.toISOString()}>{formatDate(date)}</time>
+      <span class="kicker" data-pagefind-ignore>
+        <time datetime={date.toISOString()} data-pagefind-meta="datum">{formatDate(date)}</time>
         {updated && <> · aktualisiert <time datetime={updated.toISOString()}>{formatDate(updated)}</time></>}
         {draft && <span class="draft"> · Entwurf</span>}
       </span>
-      <h1>{title}</h1>
-      <p class="lede">{description}</p>
+      <h1 data-pagefind-meta="title">{title}</h1>
+      <p class="lede" data-pagefind-meta="beschreibung">{description}</p>
       {tags.length > 0 && <ul class="tag-list">{tags.map((tag) => <li><a href={tagUrl(tag)}>#{tag}</a></li>)}</ul>}
     </header>
     <div class="prose">
