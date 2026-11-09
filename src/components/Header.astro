@@ -27,6 +27,9 @@ const path = Astro.url.pathname;
         <li>
           <a href={url('/now/')} aria-current={path.startsWith(url('/now/')) ? 'page' : undefined}>Now</a>
         </li>
+        <li>
+          <a href={url('/suche/')} aria-current={path.startsWith(url('/suche/')) ? 'page' : undefined}>Suche</a>
+        </li>
       </ul>
     </nav>
   </div>
