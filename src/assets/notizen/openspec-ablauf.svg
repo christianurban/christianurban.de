@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 528" width="480" height="528" role="img" aria-labelledby="t d">
+  <title id="t">Ablauf mit OpenSpec</title>
+  <desc id="d">Vier Phasen: 1 Planen mit Explore, Proposal, Design, Specs und Tasks. 2 Umsetzen: die KI arbeitet die Tasks ab. 3 Prüfen: Code gegen Specs, Design und Tasks prüfen. 4 Abschließen: Delta-Specs in die zentralen Specs übernehmen und den Change archivieren.</desc>
+  <style>
+    .bg { fill: #f7f7fb; }
+    .card { fill: #ffffff; stroke: #d9dbe8; stroke-width: 1.2; }
+    .chip { fill: #eef1ff; stroke: #c9d0f5; stroke-width: 1; }
+    .title { font: 700 17px system-ui, -apple-system, 'Segoe UI', sans-serif; fill: #141627; }
+    .text { font: 400 13px system-ui, -apple-system, 'Segoe UI', sans-serif; fill: #4b5070; }
+    .chiptext { font: 600 12.5px system-ui, -apple-system, 'Segoe UI', sans-serif; fill: #2a2f55; }
+    .cmd { font: 500 12px ui-monospace, 'Cascadia Mono', Consolas, monospace; fill: #0e7490; }
+    .num { font: 700 13px system-ui, -apple-system, 'Segoe UI', sans-serif; fill: #ffffff; }
+    .arrow { stroke: #9097b8; stroke-width: 2; fill: none; }
+    .head { fill: #9097b8; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0d0f1c; }
+      .card { fill: #151829; stroke: #2a2e47; }
+      .chip { fill: #1e2240; stroke: #343a66; }
+      .title { fill: #eef0ff; }
+      .text { fill: #b4b9d6; }
+      .chiptext { fill: #dfe3ff; }
+      .cmd { fill: #67e8f9; }
+    }
+  </style>
+  <defs>
+    <marker id="pfeil" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path class="head" d="M0,0 L10,5 L0,10 z"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="480" height="528" rx="16"/>
+
+  <!-- 1 Planen -->
+  <rect class="card" x="20" y="16" width="440" height="158" rx="14"/>
+  <circle cx="46" cy="41" r="13" fill="#2563eb"/>
+  <text class="num" x="46" y="45.5" text-anchor="middle">1</text>
+  <text class="title" x="68" y="47">Planen</text>
+  <text class="text" x="40" y="72">Was soll passieren – und warum? Alles als Markdown.</text>
+  <g>
+    <rect class="chip" x="30" y="88" width="76" height="34" rx="9"/>
+    <text class="chiptext" x="68" y="109.5" text-anchor="middle">Explore</text>
+    <rect class="chip" x="116" y="88" width="76" height="34" rx="9"/>
+    <text class="chiptext" x="154" y="109.5" text-anchor="middle">Proposal</text>
+    <rect class="chip" x="202" y="88" width="76" height="34" rx="9"/>
+    <text class="chiptext" x="240" y="109.5" text-anchor="middle">Design</text>
+    <rect class="chip" x="288" y="88" width="76" height="34" rx="9"/>
+    <text class="chiptext" x="326" y="109.5" text-anchor="middle">Specs</text>
+    <rect class="chip" x="374" y="88" width="76" height="34" rx="9"/>
+    <text class="chiptext" x="412" y="109.5" text-anchor="middle">Tasks</text>
+  </g>
+  <text class="cmd" x="40" y="153">/opsx:explore · /opsx:new · /opsx:continue</text>
+
+  <line class="arrow" x1="240" y1="176" x2="240" y2="196" marker-end="url(#pfeil)"/>
+
+  <!-- 2 Umsetzen -->
+  <rect class="card" x="20" y="202" width="440" height="78" rx="14"/>
+  <circle cx="46" cy="227" r="13" fill="#16a34a"/>
+  <text class="num" x="46" y="231.5" text-anchor="middle">2</text>
+  <text class="title" x="68" y="233">Umsetzen</text>
+  <text class="cmd" x="440" y="233" text-anchor="end">/opsx:apply</text>
+  <text class="text" x="40" y="260">Die KI arbeitet die Tasks Schritt für Schritt ab.</text>
+
+  <line class="arrow" x1="240" y1="282" x2="240" y2="302" marker-end="url(#pfeil)"/>
+
+  <!-- 3 Prüfen -->
+  <rect class="card" x="20" y="308" width="440" height="78" rx="14"/>
+  <circle cx="46" cy="333" r="13" fill="#7c3aed"/>
+  <text class="num" x="46" y="337.5" text-anchor="middle">3</text>
+  <text class="title" x="68" y="339">Prüfen</text>
+  <text class="cmd" x="440" y="339" text-anchor="end">/opsx:verify</text>
+  <text class="text" x="40" y="366">Passt der Code zu Specs, Design und Tasks?</text>
+
+  <line class="arrow" x1="240" y1="388" x2="240" y2="408" marker-end="url(#pfeil)"/>
+
+  <!-- 4 Abschließen -->
+  <rect class="card" x="20" y="414" width="440" height="96" rx="14"/>
+  <circle cx="46" cy="439" r="13" fill="#0891b2"/>
+  <text class="num" x="46" y="443.5" text-anchor="middle">4</text>
+  <text class="title" x="68" y="445">Abschließen</text>
+  <text class="cmd" x="440" y="445" text-anchor="end">/opsx:sync · /opsx:archive</text>
+  <text class="text" x="40" y="472">Delta-Specs in die zentralen Specs übernehmen,</text>
+  <text class="text" x="40" y="491">Change mit Historie archivieren.</text>
+</svg>
