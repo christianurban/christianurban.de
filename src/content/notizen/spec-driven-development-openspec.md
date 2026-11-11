@@ -30,6 +30,12 @@ openspec/
 
 `specs/` beschreibt den aktuellen Stand des Systems. Jede Änderung bekommt unter `changes/` einen eigenen Ordner mit allem, was dazugehört. Die Änderungen an den Anforderungen stehen dort als **Delta-Specs** – also nur das, was hinzukommt, sich ändert oder wegfällt. Erst wenn der Change fertig ist, wandern sie in die zentralen Specs.
 
+## Warum OpenSpec: Living Specs
+
+Genau das war für uns der wichtigste Grund, uns für OpenSpec zu entscheiden: Die Specs sind **Living Specs**. Sie beschreiben nicht, was irgendwann einmal geplant war, sondern immer den aktuellen Stand des Systems.
+
+Bei vielen Ansätzen entsteht pro Feature ein Dokument, das nach der Umsetzung niemand mehr anfasst. Nach ein paar Monaten widersprechen sich die Dokumente, und die Wahrheit steht wieder nur im Code. Bei OpenSpec fließt jede abgeschlossene Änderung über die Delta-Specs zurück in `specs/`. Wer wissen will, *wie* sich etwas verhalten soll, schaut dort nach. Wer wissen will, *warum*, findet den Change im Archiv.
+
 OpenSpec ist an kein Werkzeug gebunden. Es bringt Befehle für Claude Code, GitHub Copilot und andere Assistenten mit, die Dateien selbst sind einfach Markdown.
 
 ## Der Ablauf
@@ -71,6 +77,8 @@ Das ist für Menschen lesbar, für die KI eindeutig und im Pull Request gut zu p
 
 ## Unsere Erfahrungen
 
+**Greenfield und Brownfield.** Wir haben OpenSpec erfolgreich in neuen Projekten eingesetzt und ebenso in bestehenden, über Jahre gewachsenen Codebasen. Bei neuen Projekten wachsen die Specs von Anfang an mit dem Code. Bei bestehenden muss niemand erst das ganze System nachdokumentieren: Die Specs entstehen Change für Change genau dort, wo gerade gearbeitet wird. So wächst die Dokumentation mit, statt ein eigenes Projekt zu werden.
+
 **Bei den Standardsprachen lief es fast von selbst.** In Projekten mit C#, Python oder PowerShell ließ sich jeder Schritt direkt abbilden. Bauen, testen und prüfen gehen mit den üblichen Werkzeugen wie `dotnet test`, `pytest` oder Pester, und die KI kennt sie. Der Ablauf funktionierte vom ersten Tag an.
 
 **Im ERP-Umfeld mit Business Central war mehr Vorarbeit nötig.** Dort sind Dinge wie das Bauen der App-Datei oder das Ausführen der automatisierten Tests nicht mit einem Standardbefehl erledigt. Wir mussten diese Prozesse der KI erst beibringen: mit Skills und Skripten, die genau beschreiben, wie die App gebaut und wie die Tests ausgeführt werden. Erst dann geht die KI bei jeder Umsetzung denselben Weg – und `/opsx:apply` und `/opsx:verify` liefern verlässliche Ergebnisse.
@@ -81,4 +89,4 @@ Die Lehre daraus: Spec-Driven Development ist nur so gut wie die Werkzeuge, mit 
 
 ## Mein Fazit
 
-Mit KI wird Code billig. Teuer bleibt, das Richtige zu bauen und später noch zu wissen, warum. OpenSpec löst genau das: Die Absicht steht im Repo, nicht im Chat. Ein paar Minuten für Proposal und Specs sparen mir regelmäßig Stunden an Nacharbeit – und machen die Ergebnisse der KI planbar.
+Mit KI wird Code billig. Teuer bleibt, das Richtige zu bauen und später noch zu wissen, warum. OpenSpec löst genau das: Die Absicht steht im Repo, nicht im Chat – und dank Living Specs ist sie immer auf dem aktuellen Stand. Ein paar Minuten für Proposal und Specs sparen mir regelmäßig Stunden an Nacharbeit – und machen die Ergebnisse der KI planbar.
