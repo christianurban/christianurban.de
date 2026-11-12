@@ -1,6 +1,6 @@
 ---
 title: Claude Code und GitHub Copilot – wann ich was nutze
-description: Copilot, wenn ich die freie Wahl zwischen vielen Modellen brauche. Claude Code für fast alles andere – weil man für dasselbe Geld deutlich mehr umsetzen kann und die Claude App die Entwicklung komplett aufnimmt.
+description: Copilot für die freie Modellwahl und das Code Review. Claude Code für fast alles andere – weil man für dasselbe Geld deutlich mehr umsetzen kann und die Claude App die Entwicklung komplett aufnimmt.
 date: 2026-11-12
 tags: [ki, claude-code, github-copilot]
 ---
@@ -29,6 +29,12 @@ Der zweite Grund hat uns selbst überrascht: Wir arbeiten in den meisten Projekt
 
 Ich beschreibe, was ich möchte, Claude setzt es um, und ich prüfe das Ergebnis. Den Editor brauche ich dafür nur noch selten. Diese Webseite ist ein gutes Beispiel: Notizen, Suche und Bildoptimierung sind so entstanden, jeweils als eigener Branch mit Pull Request. Den Merge mache ich oft vom Handy aus.
 
+## Code Review: hier bleibt Copilot gesetzt
+
+Beim Review sieht es anders aus. In unseren Code-Projekten nutzen wir im Regelfall das **Code Review von GitHub Copilot**. Es hängt direkt am Pull Request, kommentiert die Änderungen und braucht keine weitere Einrichtung. Das passt gut zusammen: Claude Code schreibt den Code, Copilot schaut im Pull Request noch einmal drüber, und am Ende entscheidet ein Mensch.
+
+Die Ausnahme ist Business Central. Für AL-Code nutzen wir **Peti**, ein KI-Code-Review eines kleinen Start-ups aus Münster, das auf diese Welt spezialisiert ist. Gerade im ERP-Umfeld zahlt sich das aus.
+
 ## Das Werkzeug ist nicht alles
 
 Unabhängig vom Assistenten gilt: Die Ergebnisse werden erst dann verlässlich, wenn die KI ihre Arbeit selbst prüfen kann – mit Tests, Build-Skripten und klaren Anforderungen. Wie wir das mit Spezifikationen lösen, steht in der Notiz [Spec-Driven Development mit OpenSpec](../../notizen/spec-driven-development-openspec/). Das funktioniert mit Claude Code und Copilot gleichermaßen.
@@ -37,7 +43,8 @@ Unabhängig vom Assistenten gilt: Die Ergebnisse werden erst dann verlässlich, 
 
 Für uns sind Claude Code und GitHub Copilot keine reine Konkurrenz, sondern Werkzeuge für unterschiedliche Fälle:
 
-- **GitHub Copilot**, wenn ich die freie Wahl zwischen vielen Modellen verschiedener Anbieter brauche.
+- **GitHub Copilot**, wenn ich die freie Wahl zwischen vielen Modellen verschiedener Anbieter brauche – und für das Code Review im Pull Request.
+- **Peti** für das Review von Business-Central-Code.
 - **Claude Code** für die tägliche Entwicklung – weil wir dort für einen Bruchteil des Geldes ein Vielfaches umsetzen und die Claude App die Arbeit im Editor fast vollständig ersetzt hat.
 
 Der Markt ändert sich schnell, Preise und Kontingente auch. Ich schaue mir das regelmäßig neu an. Stand heute ist die Entscheidung für uns aber eindeutig.
