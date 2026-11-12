@@ -33,7 +33,7 @@ Ich beschreibe, was ich möchte, Claude setzt es um, und ich prüfe das Ergebnis
 
 Beim Review sieht es anders aus. In unseren Code-Projekten nutzen wir im Regelfall das **Code Review von GitHub Copilot**. Es hängt direkt am Pull Request, kommentiert die Änderungen und braucht keine weitere Einrichtung. Das passt gut zusammen: Claude Code schreibt den Code, Copilot schaut im Pull Request noch einmal drüber, und am Ende entscheidet ein Mensch.
 
-Die Ausnahme ist Business Central. Für AL-Code nutzen wir **Peti**, ein KI-Code-Review eines kleinen Start-ups aus Münster, das auf diese Welt spezialisiert ist. Gerade im ERP-Umfeld zahlt sich das aus.
+Die Ausnahme ist Business Central. Für AL-Code nutzen wir **Peqy**, ein KI-Code-Review eines kleinen Start-ups aus Münster, das auf diese Welt spezialisiert ist. Gerade im ERP-Umfeld zahlt sich das aus.
 
 ## Das Werkzeug ist nicht alles
 
@@ -44,7 +44,7 @@ Unabhängig vom Assistenten gilt: Die Ergebnisse werden erst dann verlässlich, 
 Für uns sind Claude Code und GitHub Copilot keine reine Konkurrenz, sondern Werkzeuge für unterschiedliche Fälle:
 
 - **GitHub Copilot**, wenn ich die freie Wahl zwischen vielen Modellen verschiedener Anbieter brauche – und für das Code Review im Pull Request.
-- **Peti** für das Review von Business-Central-Code.
+- **Peqy** für das Review von Business-Central-Code.
 - **Claude Code** für die tägliche Entwicklung – weil wir dort für einen Bruchteil des Geldes ein Vielfaches umsetzen und die Claude App die Arbeit im Editor fast vollständig ersetzt hat.
 
 Der Markt ändert sich schnell, Preise und Kontingente auch. Ich schaue mir das regelmäßig neu an. Stand heute ist die Entscheidung für uns aber eindeutig.
