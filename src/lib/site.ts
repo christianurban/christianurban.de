@@ -72,5 +72,15 @@ export function countTags(posts: Post[]): [string, number][] {
   return [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'de'));
 }
 
+// Alle Teile der Serie eines Beitrags, sortiert nach Teil (ohne Serie: leer)
+export async function getSeries(post: Post): Promise<Post[]> {
+  const { series } = post.data;
+  if (!series) return [];
+  const all = await getAllPosts();
+  return all
+    .filter((p) => p.data.series === series)
+    .sort((a, b) => (a.data.seriesPart ?? 0) - (b.data.seriesPart ?? 0) || a.data.date.valueOf() - b.data.date.valueOf());
+}
+
 const dateFormat = new Intl.DateTimeFormat('de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
 export const formatDate = (date: Date) => dateFormat.format(date);

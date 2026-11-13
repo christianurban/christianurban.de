@@ -3,9 +3,9 @@ title: Hue, Shelly, Mähroboter und Küchengeräte in Home Assistant
 description: Was neben KNX noch im Haus steckt und wie es in Home Assistant gelandet ist – lokale und Cloud-Integrationen, Entwicklerkonten, Umbenennen und bewusst weggelassene Funktionen.
 date: 2026-11-08
 tags: [home-assistant, smart-home, hue, shelly]
+series: Smart Home mit Home Assistant
+seriesPart: 4
 ---
-
-*Teil 4 der Serie „Smart Home mit Home Assistant“. Bisher: [KNX und Gira X1 anbinden](../knx-gira-x1-home-assistant/), [Home Assistant als Code](../home-assistant-als-code/) und [PV-Überschussladen mit evcc](../pv-ueberschussladen-evcc/).*
 
 KNX ist bei uns das Rückgrat. Daneben gibt es aber, wie in fast jedem Haus, Geräte mit eigener App: Hue-Leuchten, ein paar Shellys, einen Mähroboter von Husqvarna und Küchengeräte mit Home Connect. Genau dafür habe ich mich für Home Assistant entschieden – es spricht mit all diesen Systemen. Hier ist, wie die Einbindung lief, was gut funktioniert hat und was ich bewusst weggelassen habe.
 

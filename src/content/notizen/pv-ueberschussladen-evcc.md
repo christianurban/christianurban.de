@@ -3,9 +3,9 @@ title: PV-Überschussladen mit evcc und Home Assistant
 description: Wie unser E-Auto möglichst mit Sonnenstrom lädt – evcc regelt Wallbox, Wechselrichter und Speicher, Home Assistant zeigt an und schaltet um, KNX bekommt die Werte.
 date: 2026-11-07
 tags: [home-assistant, smart-home, energie, evcc]
+series: Smart Home mit Home Assistant
+seriesPart: 3
 ---
-
-*Teil 3 der Serie „Smart Home mit Home Assistant“. In [Teil 1](../knx-gira-x1-home-assistant/) ging es um die Anbindung an KNX, in [Teil 2](../home-assistant-als-code/) darum, wie ich die Konfiguration als Code pflege.*
 
 Auf dem Dach liegt eine PV-Anlage mit Fronius-Wechselrichter und BYD-Speicher, in der Garage hängt eine Wallbox, davor steht ein VW ID. Buzz. Das Ziel ist einfach: Das Auto soll möglichst mit dem Strom laden, den wir sonst für ein paar Cent ins Netz einspeisen würden. Die Umsetzung ist es weniger – und deshalb macht das bei uns nicht Home Assistant selbst, sondern [evcc](https://evcc.io/).
 

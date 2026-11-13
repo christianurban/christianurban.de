@@ -46,10 +46,14 @@ description: Ein Satz, der in der Übersicht und in Suchmaschinen erscheint.
 date: 2026-11-02
 tags: [astro, github-actions]
 draft: true   # optional: nur im Dev-Server sichtbar
+series: Smart Home mit Home Assistant   # optional: Serie
+seriesPart: 7                           # optional: Teil der Serie
 ---
 
 Hier beginnt der Text.
 ```
+
+Beiträge mit gleichem `series` bilden eine Serie: Am Anfang steht ein Kasten mit allen Teilen, am Ende ein Link zum vorherigen und nächsten Teil. Eine handgeschriebene Einleitung „Teil x der Serie …“ ist nicht nötig.
 
 Beiträge lassen sich auch direkt auf github.com anlegen (*Add file → Create new file*), etwa vom Handy aus.
 

@@ -3,9 +3,9 @@ title: Home Assistant als Code – mit Git und Claude Code
 description: Automationen als YAML-Pakete, die Konfiguration versioniert in Git und Claude Code als Kollege, der Issues umsetzt – so pflege ich unser Smart Home.
 date: 2026-11-06
 tags: [home-assistant, smart-home, claude-code, ki]
+series: Smart Home mit Home Assistant
+seriesPart: 2
 ---
-
-*Teil 2 der Serie „Smart Home mit Home Assistant“. In [Teil 1](../knx-gira-x1-home-assistant/) ging es darum, wie Home Assistant an KNX und den Gira X1 angebunden ist.*
 
 Home Assistant lässt sich komplett über die Oberfläche konfigurieren. Ich mache das trotzdem fast nie. Stattdessen liegt die Konfiguration als YAML in einem Git-Repo, jede Änderung beginnt mit einem Issue, und den größten Teil der Arbeit erledigt Claude Code. Inzwischen sind so über hundert Issues und Pull Requests zusammengekommen.
 
