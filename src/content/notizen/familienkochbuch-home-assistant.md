@@ -3,9 +3,9 @@ title: Unser Familienkochbuch – als Code und in Home Assistant
 description: Über 400 Rezepte aus Instagram, Chefkoch und Omas Rezeptbuch in einer schlichten Webseite, gepflegt mit Claude Code und eingebaut in Home Assistant – mit Wochenplan, Koch-Statistik und Einkaufsliste.
 date: 2026-11-09
 tags: [home-assistant, smart-home, claude-code, ki, kochen]
+series: Smart Home mit Home Assistant
+seriesPart: 5
 ---
-
-*Teil 5 der Serie „Smart Home mit Home Assistant“. Bisher: [KNX und Gira X1 anbinden](../knx-gira-x1-home-assistant/), [Home Assistant als Code](../home-assistant-als-code/), [PV-Überschussladen mit evcc](../pv-ueberschussladen-evcc/) und [Hue, Shelly, Mähroboter und Küchengeräte](../hue-shelly-husqvarna-home-connect/).*
 
 Unsere Rezepte lagen früher überall: gespeicherte Beiträge auf Instagram, Favoriten bei Chefkoch, ausgedruckte Zettel, ein handgeschriebenes Rezeptbuch. Gesucht haben wir trotzdem jedes Mal von vorn. Inzwischen gibt es ein Familienkochbuch mit über 400 Rezepten – eine kleine Webseite in einem privaten GitHub-Repo, die Home Assistant direkt mit ausliefert.
 
@@ -84,5 +84,3 @@ Damit beantwortet ein Blick an die Wand die häufigste Frage im Haus: „Was ess
 - **Einfach anfangen.** HTML, JavaScript und eine JSON-Datei reichen für ein Kochbuch mit Hunderten Rezepten. Ohne Build und Framework kann ich in fünf Jahren noch genauso daran arbeiten.
 - **KI ist ideal für Fleißarbeit.** Hunderte Rezepte aus Beiträgen, Webseiten und Fotos zu übertragen, hätte ich von Hand nie gemacht. Wichtig ist die Freigabe vor dem Speichern – gerade bei handschriftlichen Rezepten.
 - **Home Assistant ist eine gute Plattform für eigene Werkzeuge.** App, Backups, Dashboards und Benachrichtigungen gibt es schon. Eine kleine Integration reicht, um eine eigene Anwendung daran anzudocken.
-
-Weiter geht es in [Teil 6](../scansorter-onedrive-home-assistant/): wie gescannte Post automatisch im richtigen OneDrive-Ordner landet.

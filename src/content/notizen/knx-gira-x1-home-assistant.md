@@ -3,9 +3,11 @@ title: KNX und Gira X1 mit Home Assistant verbinden
 description: Wie ich Home Assistant an unsere KNX-Anlage mit Gira X1 angebunden habe – wer welche Logik übernimmt, eine eigene Hauptgruppe für Fremdsysteme und ein Heartbeat für den Ernstfall.
 date: 2026-11-05
 tags: [home-assistant, knx, smart-home]
+series: Smart Home mit Home Assistant
+seriesPart: 1
 ---
 
-*Teil 1 der Serie „Smart Home mit Home Assistant“. Warum ich mich überhaupt für Home Assistant entschieden habe, steht im [Meinungsbeitrag](../../meinung/home-assistant/).*
+*Warum ich mich überhaupt für Home Assistant entschieden habe, steht im [Meinungsbeitrag](../../meinung/home-assistant/).*
 
 Unser Haus läuft auf KNX mit Gira-Aktorik. Die Visualisierung, Zeitschaltuhren und Logiken liegen auf einem **Gira X1**, programmiert mit dem **Gira Project Assistant (GPA)**. Das funktioniert seit Jahren zuverlässig. Für alles, was nicht KNX ist – PV-Anlage, Wallbox, Auto, Hausgeräte, Sonos, Hue, Shelly –, kam Home Assistant dazu. Hier beschreibe ich, wie beide Welten zusammenarbeiten.
 

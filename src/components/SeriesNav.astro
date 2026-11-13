@@ -1,0 +1,153 @@
+---
+import { postUrl, type Post } from '../lib/site';
+
+interface Props {
+  post: Post;
+  parts: Post[];
+  // box: Übersicht aller Teile am Anfang, pager: vorheriger/nächster Teil am Ende
+  variant: 'box' | 'pager';
+}
+
+const { post, parts, variant } = Astro.props;
+const index = parts.findIndex((p) => p.id === post.id && p.collection === post.collection);
+const prev = index > 0 ? parts[index - 1] : undefined;
+const next = index < parts.length - 1 ? parts[index + 1] : undefined;
+const series = post.data.series;
+---
+
+{
+  variant === 'box' ? (
+    <nav class="series-box" aria-label={`Serie „${series}“`} data-pagefind-ignore>
+      <details open={parts.length <= 6}>
+        <summary>
+          <span class="kicker">Serie · Teil {index + 1} von {parts.length}</span>
+          <span class="series-name">{series}</span>
+        </summary>
+        <ol>
+          {parts.map((p, i) => (
+            <li>
+              {i === index ? (
+                <span aria-current="page">{p.data.title}</span>
+              ) : (
+                <a href={postUrl(p)}>{p.data.title}</a>
+              )}
+            </li>
+          ))}
+        </ol>
+      </details>
+    </nav>
+  ) : (
+    (prev || next) && (
+      <nav class="series-pager" aria-label={`Weitere Teile der Serie „${series}“`} data-pagefind-ignore>
+        {prev ? (
+          <a class="card prev" href={postUrl(prev)} rel="prev">
+            <span class="kicker">← Teil {index}</span>
+            <span class="pager-title">{prev.data.title}</span>
+          </a>
+        ) : (
+          <span />
+        )}
+        {next && (
+          <a class="card next" href={postUrl(next)} rel="next">
+            <span class="kicker">Teil {index + 2} →</span>
+            <span class="pager-title">{next.data.title}</span>
+          </a>
+        )}
+      </nav>
+    )
+  )
+}
+
+<style>
+  .series-box {
+    max-width: var(--prose);
+    margin-bottom: 36px;
+    padding: 18px 22px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--violet);
+    border-radius: var(--radius);
+  }
+
+  summary {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .series-name {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  summary::after {
+    content: 'Alle Teile anzeigen';
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--link);
+  }
+
+  details[open] summary::after {
+    content: none;
+  }
+
+  ol {
+    margin: 14px 0 0;
+    padding-left: 1.4em;
+    color: var(--muted);
+  }
+
+  li + li {
+    margin-top: 6px;
+  }
+
+  li a {
+    color: var(--text-soft);
+  }
+
+  li a:hover {
+    color: var(--link);
+  }
+
+  [aria-current='page'] {
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .series-pager {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    max-width: var(--prose);
+    margin-top: 48px;
+  }
+
+  .next {
+    grid-column: 2;
+    text-align: right;
+  }
+
+  .pager-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  @media (max-width: 600px) {
+    .series-pager {
+      grid-template-columns: 1fr;
+    }
+
+    .next {
+      grid-column: 1;
+    }
+  }
+</style>

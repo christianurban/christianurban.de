@@ -10,6 +10,9 @@ const base = z.object({
   updated: z.coerce.date().optional(),
   tags: z.array(z.string()).default([]),
   draft: z.boolean().default(false),
+  // Serie: Beiträge mit gleichem Namen verlinken sich gegenseitig, sortiert nach Teil
+  series: z.string().optional(),
+  seriesPart: z.number().int().positive().optional(),
 });
 
 const markdown = (dir: string) => glob({ pattern: '**/*.md', base: `./src/content/${dir}` });

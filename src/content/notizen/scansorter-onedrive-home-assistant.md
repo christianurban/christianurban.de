@@ -3,9 +3,9 @@ title: Gescannte Post automatisch in OneDrive einsortieren
 description: Ein eigener ScanSorter in Home Assistant liest Scans aus dem Postfach, erkennt Absender und Inhalt und legt sie im richtigen OneDrive-Ordner ab – aber nur, wenn er sich wirklich sicher ist.
 date: 2026-11-12
 tags: [home-assistant, smart-home, ki, claude-code, onedrive]
+series: Smart Home mit Home Assistant
+seriesPart: 6
 ---
-
-*Teil 6 der Serie „Smart Home mit Home Assistant“. Bisher: [KNX und Gira X1 anbinden](../knx-gira-x1-home-assistant/), [Home Assistant als Code](../home-assistant-als-code/), [PV-Überschussladen mit evcc](../pv-ueberschussladen-evcc/), [Hue, Shelly, Mähroboter und Küchengeräte](../hue-shelly-husqvarna-home-connect/) und [das Familienkochbuch](../familienkochbuch-home-assistant/).*
 
 Papierpost scannen wir seit Jahren ein. Der Scanner schickt jedes Dokument als `scan.pdf` per E-Mail – und dann beginnt die eigentliche Arbeit: Anhang speichern, umbenennen, in OneDrive den richtigen Ordner suchen. Die Ordnerstruktur ist über Jahre gewachsen, und genau deshalb blieben die Scans oft im Postfach liegen.
 
