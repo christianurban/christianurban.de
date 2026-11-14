@@ -34,7 +34,7 @@ Auf der Arbeit haben wir Dependabot gerade in unserer GitHub Enterprise für all
 
 ## Und was ist mit Dependency-Track?
 
-Dependabot ersetzt keinen Überblick über alle Produkte. Dafür baue ich gerade [Dependency-Track](https://dependencytrack.org/) auf, das SBOMs zentral auswertet. Beides ergänzt sich gut: Dependency-Track zeigt das Gesamtbild, Dependabot sorgt direkt im Repo dafür, dass Lücken geschlossen werden.
+Dependabot ersetzt keinen Überblick über alle Produkte. Dafür baue ich gerade [Dependency-Track](https://dependencytrack.org/) auf, das SBOMs zentral auswertet – mehr dazu in der Notiz [Alle Komponenten im Blick mit Dependency-Track](../../notizen/dependency-track-sbom/). Beides ergänzt sich gut: Dependency-Track zeigt das Gesamtbild, Dependabot sorgt direkt im Repo dafür, dass Lücken geschlossen werden.
 
 ## Mein Fazit
 
