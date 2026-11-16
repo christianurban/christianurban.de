@@ -57,9 +57,14 @@ Die AL-Erweiterung bildet deshalb nicht nur Objekte wie Tabellen, Seiten, Codeun
 - **Abhängigkeiten zwischen Apps** aus der `app.json` – ein Objekt wird nur dann einer anderen App zugeordnet, wenn diese tatsächlich als Abhängigkeit eingetragen ist,
 - **Testbeziehungen**, also welche Tests welche Seiten und Handler nutzen.
 
-Für X++ gilt Ähnliches. Auch dort wird Standardcode über Erweiterungen und Event-Handler angepasst, und die Zusammenhänge sind über viele Dateien verteilt.
+Bei **X++** kam eine Besonderheit dazu: Der Code liegt nicht in eigenen Quelldateien, sondern als XML-Metadaten im Application Object Tree – jedes Objekt in einer Datei unter `<Package>/<Model>/Ax<Typ>/<Name>.xml`, der eigentliche X++-Code steckt in CDATA-Blöcken darin. Die Erweiterung liest deshalb zwei Ebenen:
 
-Ein eigener Fork hat eine Folge, die man von Anfang an einplanen sollte: Er muss mit dem Original Schritt halten. Wir holen Änderungen von Graphify deshalb automatisiert über einen Workflow nach.
+- **die Metadaten:** Objekte, Tabellenfelder mit ihren Datentypen, Tabellenrelationen, Datenquellen von Formularen und Abfragen, Menüpunkte, Sicherheitsobjekte und Erweiterungsobjekte,
+- **den X++-Code:** Vererbung, Chain of Command mit `[ExtensionOf(...)]` und `next`, Event-Handler, Methodenaufrufe sowie lesende und schreibende Datenbankzugriffe über `select` und Co.
+
+Damit andere Projekte mit XML-Dateien nicht versehentlich als X++ gelesen werden, ist die Erkennung bewusst eng: Gelesen wird nur, was in einem passenden `Ax…`-Ordner liegt und das richtige Wurzelelement hat. Und weil X++ ein Objekt meist ohne sein Modell nennt, ordnet ein zweiter Durchlauf die Verweise über alle Dateien hinweg der richtigen Definition zu.
+
+Ein eigener Fork hat eine Folge, die man von Anfang an einplanen sollte: Er muss mit dem Original Schritt halten. Wir holen Änderungen von Graphify deshalb regelmäßig über einen automatisierten Workflow nach und behalten dabei unsere Erweiterungen.
 
 ## Was ich gelernt habe
 
